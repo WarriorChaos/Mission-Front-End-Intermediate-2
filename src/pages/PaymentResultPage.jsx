@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Header from '../components/layout/Header/Header';
 import Footer from '../components/layout/Footer/Footer';
-import { courses, paymentMethods } from '../data/mockData';
+import { courses, paymentMethods, paymentMethodAliases } from '../data/mockData';
 import { getUserOrders, saveUserOrder } from '../data/userPurchases';
 import './FlowPages.css';
 
@@ -12,7 +12,10 @@ export default function PaymentResultPage() {
   const navigate = useNavigate();
   const course = courses.find((item) => item.id === Number(courseId)) || courses[0];
   const requestedMethod = searchParams.get('method');
-  const method = paymentMethods.find((item) => item.id === requestedMethod) || paymentMethods[0];
+  const methodId = paymentMethods.some((item) => item.id === requestedMethod)
+    ? requestedMethod
+    : paymentMethodAliases[requestedMethod] || paymentMethods[0].id;
+  const method = paymentMethods.find((item) => item.id === methodId) || paymentMethods[0];
   const orderId = searchParams.get('order');
   const order = getUserOrders().find((item) => item.id === orderId);
   const isPending = status === 'pending' && order?.status === 'Belum Bayar';

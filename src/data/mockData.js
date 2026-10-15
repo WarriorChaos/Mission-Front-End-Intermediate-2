@@ -217,10 +217,24 @@ export const courses = [
 ];
 
 export const paymentMethods = [
-  { id: 'bank', name: 'Transfer Bank (BCA)', value: 'bank', logo: 'BCA' },
-  { id: 'ewallet', name: 'E-Wallet (DANA)', value: 'ewallet', logo: 'DANA' },
-  { id: 'card', name: 'Kartu Kredit', value: 'card', logo: 'VISA' }
+  { id: 'bca', group: 'bank', name: 'Bank BCA', logo: 'BCA', color: '#0866b2' },
+  { id: 'bni', group: 'bank', name: 'Bank BNI', logo: 'BNI', color: '#f36f21' },
+  { id: 'bri', group: 'bank', name: 'Bank BRI', logo: 'BRI', color: '#0759a8' },
+  { id: 'mandiri', group: 'bank', name: 'Bank Mandiri', logo: 'mandiri', color: '#064a9b' },
+  { id: 'dana', group: 'ewallet', name: 'DANA', logo: 'DANA', color: '#168df2' },
+  { id: 'ovo', group: 'ewallet', name: 'OVO', logo: 'OVO', color: '#4d2b91' },
+  { id: 'linkaja', group: 'ewallet', name: 'LinkAja', logo: 'LinkAja', color: '#e21b2d' },
+  { id: 'shopeepay', group: 'ewallet', name: 'ShopeePay', logo: 'S', color: '#ee4d2d' },
+  { id: 'mastercard', group: 'card', name: 'Mastercard', logo: 'mastercard', color: '#252525' },
+  { id: 'visa', group: 'card', name: 'Visa', logo: 'VISA', color: '#17479e' },
+  { id: 'jcb', group: 'card', name: 'JCB', logo: 'JCB', color: '#17479e' }
 ];
+
+export const paymentMethodAliases = {
+  bank: 'bca',
+  ewallet: 'dana',
+  card: 'visa'
+};
 
 export const defaultProfile = {
   name: 'Jennie Ruby Jane',
